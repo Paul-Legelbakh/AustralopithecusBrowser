@@ -46,5 +46,29 @@ namespace AustralopithecusBrowser
         {
             DeleteTab();
         }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach(var control in tabControl1.SelectedTab.Controls)
+            {
+                if(control is Browser)
+                {
+                    Browser current = (Browser)control;
+                    current.GoBack();
+                }
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            foreach (var control in tabControl1.SelectedTab.Controls)
+            {
+                if (control is Browser)
+                {
+                    Browser current = (Browser)control;
+                    current.GoForward();
+                }
+            }
+        }
     }
 }

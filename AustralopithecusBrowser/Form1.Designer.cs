@@ -66,8 +66,9 @@
             // 
             this.выходToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(92, 25);
-            this.выходToolStripMenuItem.Text = "<----------";
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(62, 25);
+            this.выходToolStripMenuItem.Text = "<-----";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // оБраузереToolStripMenuItem
             // 
@@ -79,8 +80,9 @@
             // 
             this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(92, 25);
-            this.toolStripMenuItem1.Text = "---------->";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(62, 25);
+            this.toolStripMenuItem1.Text = "----->";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -116,7 +118,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "AustralopithecusBrowser";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

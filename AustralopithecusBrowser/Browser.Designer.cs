@@ -48,6 +48,7 @@
             this.textBoxURL.Name = "textBoxURL";
             this.textBoxURL.Size = new System.Drawing.Size(552, 20);
             this.textBoxURL.TabIndex = 1;
+            this.textBoxURL.Text = "Enter...";
             this.textBoxURL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxURL_KeyDown);
             // 
             // Browser
