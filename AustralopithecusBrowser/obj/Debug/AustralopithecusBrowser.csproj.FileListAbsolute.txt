@@ -1,0 +1,11 @@
+C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\bin\Debug\AustralopithecusBrowser.exe.config
+C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\bin\Debug\AustralopithecusBrowser.exe
+C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\bin\Debug\AustralopithecusBrowser.pdb
+C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\obj\Debug\AustralopithecusBrowser.csprojResolveAssemblyReference.cache
+C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\obj\Debug\AustralopithecusBrowser.Browser.resources
+C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\obj\Debug\AustralopithecusBrowser.Form1.resources
+C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\obj\Debug\AustralopithecusBrowser.Properties.Resources.resources
+C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\obj\Debug\AustralopithecusBrowser.csproj.GenerateResource.Cache
+C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\obj\Debug\AustralopithecusBrowser.csproj.CoreCompileInputs.cache
+C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\obj\Debug\AustralopithecusBrowser.exe
+C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\obj\Debug\AustralopithecusBrowser.pdb
