@@ -12,17 +12,35 @@ namespace AustralopithecusBrowser
 {
     public partial class Browser : UserControl
     {
+        private HtmlHistory history;
         public Browser()
         {
             InitializeComponent();
         }
         public void GoForward()
         {
-            webBrowser1.GoForward();
+            if(webBrowser1.CanGoForward) webBrowser1.GoForward();
+        }
+        public void SetHome()
+        {
+            textBoxURL.Text = "google.com";
+            string url = "http://google.com";
+            webBrowser1.Navigate(new Uri(url));
         }
         public void GoBack()
         {
-            webBrowser1.GoBack();
+            if(webBrowser1.CanGoBack) webBrowser1.GoBack();
+        }
+        public void RefreshPage()
+        {
+            if(!webBrowser1.Url.Equals("about:blank"))
+            {
+                webBrowser1.Refresh();
+            }
+        }
+        public void StopPage()
+        {
+            webBrowser1.Stop();
         }
         private void textBoxURL_KeyDown(object sender, KeyEventArgs e)
         {
@@ -34,13 +52,18 @@ namespace AustralopithecusBrowser
                     url = "http://www." + url;
                 }
                 webBrowser1.Navigate(new Uri(url));
-                //string url = textBoxURL.Text;
-                //if (url.IndexOf("http://www.") == -1)
-                //{
-                //    webBrowser1.Navigate(@"http://www." + url);
-                //}
-                //else webBrowser1.Navigate(@url);
+                webBrowser1.ScriptErrorsSuppressed = false;
             }
+        }
+
+        private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
+        {
+            
+        }
+
+        private void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
+        {
+            textBoxURL.Text = webBrowser1.Url.ToString();
         }
     }
 }
