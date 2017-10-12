@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AustralopithecusHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AustralopithecusHistory.Designer.cs">
+      <DependentUpon>AustralopithecusHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Browser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AustralopithecusHistory.resx">
+      <DependentUpon>AustralopithecusHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>

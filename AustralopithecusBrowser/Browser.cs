@@ -12,10 +12,14 @@ namespace AustralopithecusBrowser
 {
     public partial class Browser : UserControl
     {
-        private HtmlHistory history;
         public Browser()
         {
             InitializeComponent();
+            webBrowser1.ScriptErrorsSuppressed = false;
+        }
+        public void DeletePage()
+        {
+            webBrowser1.Dispose();
         }
         public void GoForward()
         {
@@ -63,6 +67,10 @@ namespace AustralopithecusBrowser
 
         private void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
+            History objHistory = new History();
+            objHistory.url = webBrowser1.Url.ToString();
+            Form1.history.Add(objHistory);
+            Form1.SaveHistory();
             textBoxURL.Text = webBrowser1.Url.ToString();
         }
     }

@@ -9,3 +9,4 @@ C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser
 C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\obj\Debug\AustralopithecusBrowser.csproj.CoreCompileInputs.cache
 C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\obj\Debug\AustralopithecusBrowser.exe
 C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\obj\Debug\AustralopithecusBrowser.pdb
+C:\Users\Paul\Documents\Projects\AustralopithecusBrowser\AustralopithecusBrowser\obj\Debug\AustralopithecusBrowser.AustralopithecusHistory.resources

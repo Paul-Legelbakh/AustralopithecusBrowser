@@ -3,25 +3,52 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace AustralopithecusBrowser
 {
     public partial class Form1 : Form
     {
-        //private List<History> history = new List<History>();
+        public static List<History> history = new List<History>();
         private int pageInc = 1;
         public Form1()
         {
             InitializeComponent();
             CreateTab();
+            LoadHistory();
         }
         private void DeleteTab()
         {
             tabControl1.Controls.RemoveAt(tabControl1.SelectedIndex);
+        }
+        public static void SaveHistory()
+        {
+            try
+            {
+                FileStream fs = new FileStream("History.bin", FileMode.OpenOrCreate);
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(fs, history);
+                fs.Close();
+            }
+            catch { }
+        }
+        public void LoadHistory()
+        {
+            try
+            {
+                if (File.Exists("History.bin"))
+                {
+                    FileStream fs = new FileStream("History.bin", FileMode.Open);
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    history = (List<History>)formatter.Deserialize(fs);
+                    fs.Close();
+                }
+            }
+            catch { }
         }
         private void CreateTab()
         {
@@ -109,12 +136,18 @@ namespace AustralopithecusBrowser
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
         }
 
         private void оБраузереToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //history.DomHistory;
+            AustralopithecusHistory viewHistory = new AustralopithecusHistory();
+            viewHistory.ShowDialog();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }

@@ -71,7 +71,7 @@
             // оБраузереToolStripMenuItem
             // 
             this.оБраузереToolStripMenuItem.Name = "оБраузереToolStripMenuItem";
-            this.оБраузереToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.оБраузереToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.оБраузереToolStripMenuItem.Text = "История";
             this.оБраузереToolStripMenuItem.Click += new System.EventHandler(this.оБраузереToolStripMenuItem_Click);
             // 
@@ -148,6 +148,7 @@
             this.Name = "Form1";
             this.Text = "AustralopithecusBrowser";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
