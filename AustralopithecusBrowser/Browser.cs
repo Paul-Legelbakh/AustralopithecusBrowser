@@ -12,10 +12,17 @@ namespace AustralopithecusBrowser
 {
     public partial class Browser : UserControl
     {
+        public static string home;
+        public delegate void NavigatedUrl(object sender, string title);
+        public NavigatedUrl title;
         public Browser()
         {
             InitializeComponent();
-            webBrowser1.ScriptErrorsSuppressed = false;
+            if (AustralopithecusHistory.str != "") webBrowser1.Navigate(new Uri(AustralopithecusHistory.str));
+        }
+        public void GetPageUrl()
+        {
+            home = webBrowser1.Url.ToString();
         }
         public void DeletePage()
         {
@@ -27,9 +34,7 @@ namespace AustralopithecusBrowser
         }
         public void SetHome()
         {
-            textBoxURL.Text = "google.com";
-            string url = "http://google.com";
-            webBrowser1.Navigate(new Uri(url));
+            webBrowser1.Navigate(new Uri(home));
         }
         public void GoBack()
         {
@@ -48,30 +53,35 @@ namespace AustralopithecusBrowser
         }
         private void textBoxURL_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode.ToString() == "Return")
+            try
             {
-                string url = textBoxURL.Text;
-                if (!url.StartsWith("http://www.") && !url.StartsWith("https://www."))
+                if (e.KeyCode.ToString() == "Return")
                 {
-                    url = "http://www." + url;
+                    string url = textBoxURL.Text;
+                    if (!url.StartsWith("http://www.") && !url.StartsWith("https://www."))
+                    {
+                        url = "http://www." + url;
+                    }
+                    webBrowser1.Navigate(new Uri(url));
                 }
-                webBrowser1.Navigate(new Uri(url));
-                webBrowser1.ScriptErrorsSuppressed = false;
-            }
+            } catch { }
         }
 
         private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
-            
+            UseWaitCursor = true;
         }
 
         private void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
+            UseWaitCursor = false;
             History objHistory = new History();
-            objHistory.url = webBrowser1.Url.ToString();
+            //Form1.tabControl1.SelectedTab.Text = webBrowser1.Document.Title;
+            objHistory.Url = webBrowser1.Url.ToString();
             Form1.history.Add(objHistory);
             Form1.SaveHistory();
             textBoxURL.Text = webBrowser1.Url.ToString();
+            title?.Invoke(this, webBrowser1.Document.Title.ToString());
         }
     }
 }

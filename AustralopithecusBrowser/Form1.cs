@@ -20,10 +20,24 @@ namespace AustralopithecusBrowser
             InitializeComponent();
             CreateTab();
             LoadHistory();
+            try
+            {
+                if (File.Exists("Home.bin"))
+                {
+                    FileStream fs = new FileStream("Home.bin", FileMode.Open);
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    Browser.home = (string)formatter.Deserialize(fs);
+                    fs.Close();
+                }
+                else Browser.home = "http://google.com";
+            }
+            catch { }
+            
         }
         private void DeleteTab()
         {
-            tabControl1.Controls.RemoveAt(tabControl1.SelectedIndex);
+            tabControl1.SelectedTab.Dispose();
+            //tabControl1.Controls.RemoveAt(tabControl1.SelectedIndex);
         }
         public static void SaveHistory()
         {
@@ -50,6 +64,12 @@ namespace AustralopithecusBrowser
             }
             catch { }
         }
+
+        private void SetPageTitle(object sender, string titleSite)
+        {
+            tabControl1.SelectedTab.Text = titleSite;
+        }
+
         private void CreateTab()
         {
             Browser browser = new Browser();
@@ -59,6 +79,7 @@ namespace AustralopithecusBrowser
             tabControl1.Controls.Add(newPage);
             newPage.Text = "Page " + pageInc;
             pageInc++;
+            browser.title = SetPageTitle;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -148,6 +169,31 @@ namespace AustralopithecusBrowser
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
 
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void установитьКакДомашнююToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var control in tabControl1.SelectedTab.Controls)
+            {
+                if (control is Browser)
+                {
+                    Browser current = (Browser)control;
+                    current.GetPageUrl();
+                    try
+                    {
+                        FileStream fs = new FileStream("Home.bin", FileMode.OpenOrCreate);
+                        BinaryFormatter formatter = new BinaryFormatter();
+                        formatter.Serialize(fs, Browser.home);
+                        fs.Close();
+                    }
+                    catch { }
+                }
+            }
         }
     }
 }
